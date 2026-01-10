@@ -102,3 +102,14 @@ With Adobe Stock, you have access to more than 140 million high-quality, royalty
 
 * This project was generated using the [AEM Project Archetype](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/overview.html).
 * This project relies on [AEM Core Components](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/introduction.html).
+
+
+##I've successfully renamed the module from ui.frontend to ui.myfrontend. Here's a summary of all changes made:
+Changes Made
+File	Change
+Directory	Renamed ui.frontend/ → ui.myfrontend/
+pom.xml (root)	<module>ui.frontend</module> → <module>ui.myfrontend</module>
+ui.myfrontend/pom.xml	<artifactId>aem-guides-wknd.ui.frontend</artifactId> → <artifactId>aem-guides-wknd.ui.myfrontend</artifactId>
+ui.apps/pom.xml	Dependency artifactId updated to aem-guides-wknd.ui.myfrontend
+ui.myfrontend/tsconfig.json	"baseUrl": "../ui.myfrontend"
+ui.myfrontend/README.md	All 9 references updated

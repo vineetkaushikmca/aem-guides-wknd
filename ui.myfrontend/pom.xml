@@ -30,7 +30,7 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>aem-guides-wknd.ui.frontend</artifactId>
+    <artifactId>aem-guides-wknd.ui.myfrontend</artifactId>
     <packaging>pom</packaging>
     <name>WKND Sites Project - UI Frontend</name>
 
