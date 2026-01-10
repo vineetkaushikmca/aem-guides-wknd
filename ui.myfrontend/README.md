@@ -19,7 +19,7 @@
 ## Installation
 
 1. Install [NodeJS](https://nodejs.org/en/download/) (v10+), globally. This will also install `npm`.
-2. Navigate to `ui.frontend` in your project and run `npm ci`. (You must have run the archetype with `-DfrontendModule=general` to populate the ui.frontend folder)
+2. Navigate to `ui.myfrontend` in your project and run `npm ci`. (You must have run the archetype with `-DfrontendModule=general` to populate the ui.myfrontend folder)
 
 ## Usage
 
@@ -31,7 +31,7 @@ The following npm scripts drive the frontend workflow:
 
 ### General
 
-The ui.frontend module compiles the code under the `ui.frontend/src` folder and outputs the compiled CSS and JS, and any resources beneath a folder named `ui.frontend/dist`.
+The ui.myfrontend module compiles the code under the `ui.myfrontend/src` folder and outputs the compiled CSS and JS, and any resources beneath a folder named `ui.myfrontend/dist`.
 
 * **Site** - `site.js`, `site.css` and a `resources/` folder for layout dependent images and fonts are created in a `dist/clientlib-site` folder.
 * **Dependencies** - `dependencies.js` and `dependencies.css` are created in a `dist/clientlib-dependencies` folder.
@@ -63,7 +63,7 @@ called is removed.
 
 ### Client Library Generation
 
-The second part of the ui.frontend module build process leverages the [aem-clientlib-generator](https://www.npmjs.com/package/aem-clientlib-generator) plugin to move the compiled CSS, JS and any resources into the `ui.apps` module. The aem-clientlib-generator configuration is defined in `clientlib.config.js`. The following client libraries are generated:
+The second part of the ui.myfrontend module build process leverages the [aem-clientlib-generator](https://www.npmjs.com/package/aem-clientlib-generator) plugin to move the compiled CSS, JS and any resources into the `ui.apps` module. The aem-clientlib-generator configuration is defined in `clientlib.config.js`. The following client libraries are generated:
 
 * **clientlib-site** - `ui.apps/src/main/content/jcr_root/apps/<app>/clientlibs/clientlib-site`
 * **clientlib-dependencies** - `ui.apps/src/main/content/jcr_root/apps/<app>/clientlibs/clientlib-dependencies`
@@ -95,16 +95,16 @@ The above inclusion can of course be modified by updating the Page Policy and/or
 
 ### Static Webpack Development Server
 
-Included in the ui.frontend module is a [webpack-dev-server](https://github.com/webpack/webpack-dev-server) that provides live reloading for rapid front-end development outside of AEM. The setup leverages the [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) to automatically inject CSS and JS compiled from the ui.frontend module into a static HTML template.
+Included in the ui.myfrontend module is a [webpack-dev-server](https://github.com/webpack/webpack-dev-server) that provides live reloading for rapid front-end development outside of AEM. The setup leverages the [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) to automatically inject CSS and JS compiled from the ui.myfrontend module into a static HTML template.
 
 #### Important files
 
-* `ui.frontend/webpack.dev.js` - This contains the configuration for the webpack-dev-serve and points to the html template to use. It also contains a proxy configuration to an AEM instance running on `localhost:4502`.
-* `ui.frontend/src/main/webpack/static/index.html` - This is the static HTML that the server will run against. This allows a developer to make CSS/JS changes and see them immediately reflected in the markup. It is assumed that the markup placed in this file accurately reflects generated markup by AEM components. Note* that markup in this file does **not** get automatically synced with AEM component markup. This file also contains references to client libraries stored in AEM, like Core Component CSS and Responsive Grid CSS. The webpack development server is set up to proxy these CSS/JS includes from a local running AEM instance based on the configuration found in `ui.frontend/webpack.dev.js`.
+* `ui.myfrontend/webpack.dev.js` - This contains the configuration for the webpack-dev-serve and points to the html template to use. It also contains a proxy configuration to an AEM instance running on `localhost:4502`.
+* `ui.myfrontend/src/main/webpack/static/index.html` - This is the static HTML that the server will run against. This allows a developer to make CSS/JS changes and see them immediately reflected in the markup. It is assumed that the markup placed in this file accurately reflects generated markup by AEM components. Note* that markup in this file does **not** get automatically synced with AEM component markup. This file also contains references to client libraries stored in AEM, like Core Component CSS and Responsive Grid CSS. The webpack development server is set up to proxy these CSS/JS includes from a local running AEM instance based on the configuration found in `ui.myfrontend/webpack.dev.js`.
 
 #### Using
 
 1. From within the root of the project run the command `mvn -PautoInstallSinglePackage clean install` to install the entire project to an AEM instance running at `localhost:4502`
-2. Navigate inside the `ui.frontend` folder.
+2. Navigate inside the `ui.myfrontend` folder.
 3. Run the following command `npm run start` to start the webpack dev server. Once started it should open a browser (localhost:8080 or the next available port).
 4. You can now modify CSS, JS, SCSS, and TS files and see the changes immediately reflected in the webpack dev server.
